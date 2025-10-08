@@ -28,6 +28,8 @@ const products = productsFromServer.map(product => {
 });
 
 export const App = () => (
+  // const [selectedOwner, setSelectedOwner] = useState('');
+
   <div className="section">
     <div className="container">
       <h1 className="title">Product Categories</h1>
@@ -41,17 +43,11 @@ export const App = () => (
               All
             </a>
 
-            <a data-cy="FilterUser" href="#/">
-              User 1
-            </a>
-
-            <a data-cy="FilterUser" href="#/" className="is-active">
-              User 2
-            </a>
-
-            <a data-cy="FilterUser" href="#/">
-              User 3
-            </a>
+            {usersFromServer.map(user => (
+              <a key={user.id} data-cy="FilterUser" href="#/">
+                {user.name}
+              </a>
+            ))}
           </p>
 
           <div className="panel-block">
@@ -196,6 +192,7 @@ export const App = () => (
                   className={cn({
                     'has-text-danger': product.user.sex === 'm',
                     'has-text-link': product.user.sex === 'f',
+                    // 'is-active': selectedOwner === product.user.name,
                   })}
                 >
                   {product.user.name}
