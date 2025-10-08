@@ -57,7 +57,7 @@ export const App = () => (
                 type="text"
                 className="input"
                 placeholder="Search"
-                value="qwe"
+                // value="qwe"
               />
 
               <span className="icon is-left">
